@@ -9,28 +9,28 @@ class Cart extends ChangeNotifier {
       price: "300",
       imagePath: "lib/images/black.png",
       description:
-          "Consectetur quis placeat nihil. Explicabo labore corrupti ut doloribus itaque corporis distinctio. Praesentium quibusdam quisquam ipsam",
+          "Consectetur quis placeat nihil. Explicabo labore corrupti ut doloribu",
     ),
     Shoe(
       name: "KD 2",
       price: "450",
       imagePath: "lib/images/blue.png",
       description:
-          "Consectetur quis placeat nihil. Explicabo labore corrupti ut doloribus itaque corporis distinctio. Praesentium quibusdam quisquam ipsam",
+          "Consectetur quis placeat nihil. Explicabo labore corrupti ut doloribu",
     ),
     Shoe(
       name: "KD4",
       price: "600",
       imagePath: "lib/images/green.png",
       description:
-          "Consectetur quis placeat nihil. Explicabo labore corrupti ut doloribus itaque corporis distinctio. Praesentium quibusdam quisquam ipsam",
+          "Consectetur quis placeat nihil. Explicabo labore corrupti ut doloribu",
     ),
     Shoe(
       name: "KD 2",
       price: "300",
       imagePath: "lib/images/orange.png",
       description:
-          "Consectetur quis placeat nihil. Explicabo labore corrupti ut doloribus itaque corporis distinctio. Praesentium quibusdam quisquam ipsam",
+          "Consectetur quis placeat nihil. Explicabo labore corrupti ut doloribu",
     ),
   ];
 
@@ -43,7 +43,7 @@ class Cart extends ChangeNotifier {
   }
 
   // get cart
-  List<Shoe> getCart() {
+  List<Shoe> getCartList() {
     return cartItem;
   }
 

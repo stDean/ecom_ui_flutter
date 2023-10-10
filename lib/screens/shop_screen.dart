@@ -5,18 +5,24 @@ import '/components/show_tile.dart';
 import '/models/cart.dart';
 import '/models/shoe.dart';
 
-class ShopScreen extends StatelessWidget {
+class ShopScreen extends StatefulWidget {
   const ShopScreen({super.key});
 
-  void addShoeToCart(Shoe shoe) {
-    // Provider.of<Cart>(context, listen: false).addCartItem(shoe);
+  @override
+  State<ShopScreen> createState() => _ShopScreenState();
+}
 
-    // showDialog(
-    //   context: context,
-    //   builder: (context) => const AlertDialog(
-    //     title: Text("Show successfully added"),
-    //   ),
-    // );
+class _ShopScreenState extends State<ShopScreen> {
+  void addShoeToCart(Shoe shoe) {
+    Provider.of<Cart>(context, listen: false).addCartItem(shoe);
+
+    showDialog(
+      context: context,
+      builder: (context) => const AlertDialog(
+        title: Text("Item Successfully Added"),
+        content: Text('Check Your Cart'),
+      ),
+    );
   }
 
   @override
