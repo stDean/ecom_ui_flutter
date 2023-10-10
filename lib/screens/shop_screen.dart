@@ -1,14 +1,28 @@
-import 'package:e_com/components/show_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '/components/show_tile.dart';
+import '/models/cart.dart';
+import '/models/shoe.dart';
 
 class ShopScreen extends StatelessWidget {
   const ShopScreen({super.key});
 
+  void addShoeToCart(Shoe shoe) {
+    // Provider.of<Cart>(context, listen: false).addCartItem(shoe);
+
+    // showDialog(
+    //   context: context,
+    //   builder: (context) => const AlertDialog(
+    //     title: Text("Show successfully added"),
+    //   ),
+    // );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: Column(
+    return Consumer<Cart>(
+      builder: (context, cart, index) => Column(
         children: [
           // Search bar
           Container(
@@ -72,11 +86,24 @@ class ShopScreen extends StatelessWidget {
           // Shoes
           Expanded(
             child: ListView.builder(
+              itemCount: cart.getShoeList().length,
+              scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return const ShoeTile();
+                Shoe shoe = cart.getShoeList()[index];
+                return ShoeTile(
+                  shoe: shoe,
+                  onTap: () => addShoeToCart(shoe),
+                );
               },
             ),
           ),
+
+          const Padding(
+            padding: EdgeInsets.only(top: 25.0, left: 25, right: 25),
+            child: Divider(
+              color: Colors.white,
+            ),
+          )
         ],
       ),
     );
